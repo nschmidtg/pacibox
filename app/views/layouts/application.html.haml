@@ -10,6 +10,9 @@
   %body
     %header
       = render 'layouts/navigation'
-    %main{:role => "main"}
+    %content{:role => "main"}
       = render 'layouts/messages'
       = yield
+    / Footer
+    %footer.text-center
+      = render 'layouts/footer'  

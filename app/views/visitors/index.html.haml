@@ -1,3 +1,13 @@
+
+%header
+  .row
+    .col-lg-12
+      = image_tag("profile.png", class: "img-responsive")
+      .intro-text
+        %span.name Start Bootstrap
+        %hr.star-light/
+        %span.skills Web Developer - Graphic Artist - User Experience Designer
+
 .row
   .col-lg-12.text-center
     %h2 Portfolio
@@ -8,37 +18,37 @@
       .caption
         .caption-content
           %i.fa.fa-search-plus.fa-3x
-      %img.img-responsive{:alt => "", :src => "public/img/portfolio/cabin.png"}/
+      = image_tag("portfolio/cabin.png", class: "img-responsive")
   .col-sm-4.portfolio-item
     %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal2"}
       .caption
         .caption-content
           %i.fa.fa-search-plus.fa-3x
-      %img.img-responsive{:alt => "", :src => "img/portfolio/cake.png"}/
+      = image_tag("portfolio/cake.png", class: "img-responsive")
   .col-sm-4.portfolio-item
     %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal3"}
       .caption
         .caption-content
           %i.fa.fa-search-plus.fa-3x
-      %img.img-responsive{:alt => "", :src => "img/portfolio/circus.png"}/
+      = image_tag("portfolio/circus.png", class: "img-responsive")
   .col-sm-4.portfolio-item
     %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal4"}
       .caption
         .caption-content
           %i.fa.fa-search-plus.fa-3x
-      %img.img-responsive{:alt => "", :src => "img/portfolio/game.png"}/
+      = image_tag("portfolio/game.png", class: "img-responsive")
   .col-sm-4.portfolio-item
     %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal5"}
       .caption
         .caption-content
           %i.fa.fa-search-plus.fa-3x
-      %img.img-responsive{:alt => "", :src => "img/portfolio/safe.png"}/
+      = image_tag("portfolio/safe.png", class: "img-responsive")
   .col-sm-4.portfolio-item
     %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal6"}
       .caption
         .caption-content
           %i.fa.fa-search-plus.fa-3x
-      %img.img-responsive{:alt => "", :src => "img/portfolio/submarine.png"}/
+      = image_tag("portfolio/submarine.png", class: "img-responsive")
 / About Section
 %section#about.success
   .container
@@ -92,46 +102,7 @@
           .row
             .form-group.col-xs-12
               %button.btn.btn-success.btn-lg{:type => "submit"} Send
-/ Footer
-%footer.text-center
-  .footer-above
-    .container
-      .row
-        .footer-col.col-md-4
-          %h3 Location
-          %p
-            3481 Melrose Place
-            = succeed "Beverly" do
-              %br/
-        .footer-col.col-md-4
-          %h3 Around the Web
-          %ul.list-inline
-            %li
-              %a.btn-social.btn-outline{:href => "#"}
-                %i.fa.fa-fw.fa-facebook
-            %li
-              %a.btn-social.btn-outline{:href => "#"}
-                %i.fa.fa-fw.fa-google-plus
-            %li
-              %a.btn-social.btn-outline{:href => "#"}
-                %i.fa.fa-fw.fa-twitter
-            %li
-              %a.btn-social.btn-outline{:href => "#"}
-                %i.fa.fa-fw.fa-linkedin
-            %li
-              %a.btn-social.btn-outline{:href => "#"}
-                %i.fa.fa-fw.fa-dribbble
-        .footer-col.col-md-4
-          %h3 About Freelancer
-          %p
-            Freelance is a free to use, open source Bootstrap theme created by
-            = succeed "." do
-              %a{:href => "http://startbootstrap.com"} Start Bootstrap
-  .footer-below
-    .container
-      .row
-        .col-lg-12
-          Copyright © Your Website 2016
+
 / Scroll to Top Button (Only visible on small and extra-small screen sizes)
 .scroll-top.page-scroll.hidden-sm.hidden-xs.hidden-lg.hidden-md
   %a.btn.btn-primary{:href => "#page-top"}
