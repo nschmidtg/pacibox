@@ -83,3 +83,6 @@ node_modules
 
 # tilde files are usually backup files from a text editor
 *~
+
+# Ignore application configuration
+/config/application.yml
