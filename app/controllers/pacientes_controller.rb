@@ -1,5 +1,6 @@
 class PacientesController < ApplicationController
   before_action :set_paciente, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery with: :null_session
 
   # GET /pacientes
   # GET /pacientes.json
