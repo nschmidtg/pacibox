@@ -4,12 +4,18 @@ class PacientesController < ApplicationController
   # GET /pacientes
   # GET /pacientes.json
   def index
-    @pacientes = Paciente.all
+    @pacientes = current_user.pacientes
   end
 
   # GET /pacientes/1
   # GET /pacientes/1.json
   def show
+    @paciente = Paciente.find params[:id]
+    unless current_user.id == @paciente.user_id
+      flash[:notice] = "No tienes acceso a ese paciente."
+      redirect_to home_path()
+      return
+    end
   end
 
   # GET /pacientes/new
@@ -25,10 +31,15 @@ class PacientesController < ApplicationController
   # POST /pacientes.json
   def create
     @paciente = Paciente.new(paciente_params)
+    @paciente.user=current_user
 
     respond_to do |format|
       if @paciente.save
-        format.html { redirect_to @paciente, notice: 'Paciente was successfully created.' }
+        historial=Historial.new
+        historial.paciente=@paciente
+        historial.save
+
+        format.html { redirect_to @paciente, notice: 'Paciente creado exitosamente.' }
         format.json { render :show, status: :created, location: @paciente }
       else
         format.html { render :new }
@@ -42,7 +53,7 @@ class PacientesController < ApplicationController
   def update
     respond_to do |format|
       if @paciente.update(paciente_params)
-        format.html { redirect_to @paciente, notice: 'Paciente was successfully updated.' }
+        format.html { redirect_to @paciente, notice: 'Paciente actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @paciente }
       else
         format.html { render :edit }
@@ -69,6 +80,6 @@ class PacientesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paciente_params
-      params.fetch(:paciente, {})
+      params.require(:paciente).permit(:name, :last_name, :rut, :address, :birthdate, :phone, :mail, :user_id)
     end
 end

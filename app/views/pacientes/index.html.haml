@@ -1,71 +1,72 @@
-
-#page-wrapper{style:"margin-top:50px;"}
-  .container-fluid
-    / Page Heading
-    .row
-      .col-lg-12
-        %h1.page-header
-          Pacientes
-          %small Panel de control
+.container-fluid
+  / Page Heading
+  .row
+    .col-lg-12
+      %h1.page-header
+        Pacientes
+        %small Panel de control
 
 
-    .row
-      .col-lg-12
-        .panel.panel-default
-          .panel-heading
-            %h3.panel-title
-              %i.fa.fa-user.fa-fw
-              Pacientes
-          .panel-body
-            = link_to 'New Paciente', new_paciente_path
-            .table-responsive
-              %table.table.table-bordered.table-hover.table-striped
-                %thead
+  .row
+    .col-lg-12
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+            %i.fa.fa-user.fa-fw
+            Pacientes
+        .panel-body
+          = link_to 'New Paciente', new_paciente_path
+          .table-responsive
+            %table.table.table-bordered.table-hover.table-striped
+              %thead
+                %tr
+                  %th Nombre
+                  %th Estado
+                  %th Teléfono
+                  %th Mail
+                  %th Editar
+              %tbody
+                - @pacientes.each do |paciente|
                   %tr
-                    %th Nombre
-                    %th Estado
-                    %th Teléfono
-                    %th Mail
-                %tbody
-                  - @pacientes.each do |paciente|
-                    %tr
-                      %td 
-                        #{paciente.name} #{paciente.last_name}
-                      %td
-                        Ingresado
-                      %td
-                        = paciente.phone
-                      %td 
-                        = paciente.mail
-                  
-            .text-right
-              %a{:href => "#"}
-                View All Transactions
-                %i.fa.fa-arrow-circle-right
-    / /.row
-  / /.container-fluid
+                    %td 
+                      =link_to "#{paciente.name} #{paciente.last_name}", paciente_path(paciente)
+                    %td
+                      Ingresado
+                    %td
+                      = paciente.phone
+                    %td 
+                      = paciente.mail
+                    %td 
+                      = link_to 'Editar', edit_paciente_path(paciente)
+                
+          .text-right
+            %a{:href => "#"}
+              View All Transactions
+              %i.fa.fa-arrow-circle-right
+  / /.row
+/ /.container-fluid
 / /#page-wrapper
 / /#wrapper
 
 
 
 
-%h1 Listing pacientes
+//%h1 Listing pacientes
 
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
+/ %table
+/ %thead
+/   %tr
+/     %th
+/     %th
+/     %th
 
-  %tbody
-    - @pacientes.each do |paciente|
-      %tr
-        %td= link_to 'Show', paciente
-        %td= link_to 'Edit', edit_paciente_path(paciente)
-        %td= link_to 'Destroy', paciente, :method => :delete, :data => { :confirm => 'Are you sure?' }
+/ %tbody
+/   - @pacientes.each do |paciente|
+/     %tr
+/       %td= link_to 'Show', paciente
+/       %td= link_to 'Edit', edit_paciente_path(paciente)
+/       %td= link_to 'Destroy', paciente, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
+/ %br
 
 

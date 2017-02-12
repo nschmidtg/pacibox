@@ -9,8 +9,15 @@
     = csrf_meta_tags
   %body
     %content{:role => "main"}
-      #wrapper.no-padding-right
-        = render 'layouts/navigation'
+      - if(current_user!=nil)
+        #wrapper.no-padding-right
+          = render 'layouts/navigation'
+          .no-padding-right
+            = render 'layouts/messages'
+            = yield
+            %footer.text-center
+              = render 'layouts/footer'  
+      - else
         = render 'layouts/messages'
         = yield
         %footer.text-center

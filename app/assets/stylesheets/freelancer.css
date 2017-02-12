@@ -506,8 +506,12 @@ fieldset[disabled] .btn-success.active {
 }
 .no-padding-right{
   padding-right: 0px !important;
+  margin-top:50px;
 }
 .side-bar-corrected{
   left:0px !important;
   min-height:100vh; 
+}
+label{
+  color:black !important;
 }

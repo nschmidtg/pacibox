@@ -1,3 +1,12 @@
 = semantic_form_for @paciente do |f|
-	= f.inputs :name, :last_name, :rut, :address, :created_at, :user
-	= f.actions :submit, :cancel
+	= f.inputs "Datos del paciente", :id => "basic" do
+		= f.input :name, :required => true, :label => "Nombre"
+		= f.input :last_name, :required => true, :label => "Apellido"
+		= f.input :rut, :required => false, :label => "Rut"
+		= f.input :mail, :as => :email, :label => "Email", :required => true
+		= f.input :phone, :as => :phone, :required => true, :label => "Teléfono"
+		= f.input :birthdate, :as => :date_picker, :label => "Fecha de Nacimiento", :required => false
+		= f.input :created_at, :as => :date_picker, :label => "Fecha de Ingreso", :required => true
+  
+	= f.actions do
+		= f.action :submit, :label => "Crear Paciente"

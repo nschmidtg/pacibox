@@ -20,4 +20,31 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail address"
+    errors:
+      models:
+        paciente:
+          attributes:
+            mail:
+              blank: "is required"
+
+es:
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail address"
+    errors:
+      models:
+        paciente:
+          attributes:
+            mail:
+              blank: "No puede estar vacío"
+            phone:
+              blank: "No puede estar vacío"
+            name:
+              blank: "No puede estar vacío"
+            last_name:
+              blank: "No puede estar vacío"
