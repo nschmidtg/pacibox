@@ -1,0 +1,8 @@
+= semantic_form_for @evento do |f|
+	= f.inputs "Nuevo Evento", :id => "basic" do
+		= f.input :date, :as => :date_picker, :label => "Fecha de Nacimiento", :required => false
+		= f.input :comment, :required => true, :label => "Comentario", :as => :text
+		= f.input :historial_id,:input_html => { :value => "#{@historial_id}" }, :as => :hidden
+		= f.input :paciente_id,:input_html => { :value => "#{@paciente_id}" }, :as => :hidden
+	= f.actions do
+		= f.action :submit
