@@ -504,3 +504,10 @@ fieldset[disabled] .btn-success.active {
   opacity: 0;
   display: none;
 }
+.no-padding-right{
+  padding-right: 0px !important;
+}
+.side-bar-corrected{
+  left:0px !important;
+  min-height:100vh; 
+}

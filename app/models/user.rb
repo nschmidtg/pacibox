@@ -9,6 +9,7 @@ class User < ApplicationRecord
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth['provider']
+      user.role=Role.find_or_create_by(name: "usuario")
       user.uid = auth['uid']
       if auth['info']
          user.name = auth['info']['name'] || ""

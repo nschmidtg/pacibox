@@ -12,6 +12,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'font-awesome-rails'
+gem 'formtastic'
 gem 'jbuilder', '~> 2.5'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'

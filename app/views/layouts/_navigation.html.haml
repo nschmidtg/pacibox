@@ -1,20 +1,103 @@
-%nav#mainNav.navbar.navbar-default.navbar-fixed-top.navbar-custom
-  .navbar-header.page-scroll
-    %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+/ Navigation
+%nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+  / Brand and toggle get grouped for better mobile display
+  .navbar-header
+    %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", :type => "button"}
       %span.sr-only Toggle navigation
-      Menu
-      %i.fa.fa-bars
-    %a.navbar-brand{:href => "#page-top"} Start Bootstrap
-  / Collect the nav links, forms, and other content for toggling
-  #bs-example-navbar-collapse-1.collapse.navbar-collapse
-    %ul.nav.navbar-nav.navbar-right
-      %li.hidden
-        %a{:href => "#page-top"}
-      %li.page-scroll
-        %a{:href => "#portfolio"} Portfolio
-      %li.page-scroll
-        %a{:href => "#about"} About
-      %li.page-scroll
-        %a{:href => "#contact"} Contact
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a.navbar-brand{:href => "index.html"} Pacibox
+  / Top Menu Items
+  %ul.nav.navbar-right.top-nav
+    %li.dropdown
+      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+        %i.fa.fa-envelope
+        %b.caret
+      %ul.dropdown-menu.message-dropdown
+        %li.message-preview
+          %a{:href => "#"}
+            .media
+              %span.pull-left
+                %img.media-object{:alt => "", :src => "http://placehold.it/50x50"}/
+              .media-body
+                %h5.media-heading
+                  %strong 
+                    = current_user.name
+                %p.small.text-muted
+                  %i.fa.fa-clock-o
+                  Yesterday at 4:32 PM
+                %p Lorem ipsum dolor sit amet, consectetur...
+        %li.message-footer
+          %a{:href => "#"} Read All New Messages
+    %li.dropdown
+      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+        %i.fa.fa-bell
+        %b.caret
+      %ul.dropdown-menu.alert-dropdown
+        %li
+          %a{:href => "#"}
+            Alert Name
+            %span.label.label-default Alert Badge
+        %li
+          %a{:href => "#"}
+            Alert Name
+            %span.label.label-primary Alert Badge
+        %li
+          %a{:href => "#"}
+            Alert Name
+            %span.label.label-success Alert Badge
+        %li
+          %a{:href => "#"}
+            Alert Name
+            %span.label.label-info Alert Badge
+        %li
+          %a{:href => "#"}
+            Alert Name
+            %span.label.label-warning Alert Badge
+        %li
+          %a{:href => "#"}
+            Alert Name
+            %span.label.label-danger Alert Badge
+        %li.divider
+        %li
+          %a{:href => "#"} View All
+    %li.dropdown
+      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+        %i.fa.fa-user
+        = current_user.name
+        %b.caret
+      %ul.dropdown-menu
+        %li
+          %a{:href => "#"}
+            %i.fa.fa-fw.fa-user
+            Profile
+        %li
+          %a{:href => "#"}
+            %i.fa.fa-fw.fa-envelope
+            Inbox
+        %li
+          %a{:href => "#"}
+            %i.fa.fa-fw.fa-gear
+            Settings
+        %li.divider
+        %li
+          %a{:href => "#"}
+            %i.fa.fa-fw.fa-power-off
+            Log Out
+  / Sidebar Menu Items - These collapse to the responsive navigation menu on small screens
+  .collapse.navbar-collapse.navbar-ex1-collapse
+    %ul.side-bar-corrected.nav.navbar-nav.side-nav
+      %li.active
+        %a{:href => "/home"}
+          %i.fa.fa-fw.fa-dashboard
+          Home
+      %li
+        %a{:href => "/pacientes"}
+          %i.fa.fa-fw.fa-bar-chart-o
+          Pacientes
+      %li
+        %a{:href => "/consultas"}
+          %i.fa.fa-fw.fa-table
+          Consultas
   / /.navbar-collapse
-/ /.container-fluid
