@@ -82,22 +82,35 @@
             Settings
         %li.divider
         %li
-          %a{:href => "#"}
+          %a{:href => "/signout"}
             %i.fa.fa-fw.fa-power-off
             Log Out
   / Sidebar Menu Items - These collapse to the responsive navigation menu on small screens
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.side-bar-corrected.nav.navbar-nav.side-nav
-      %li.active
+
+      %li#home
         %a{:href => "/home"}
           %i.fa.fa-fw.fa-dashboard
           Home
-      %li
+      %li#pacientes
         %a{:href => "/pacientes"}
           %i.fa.fa-fw.fa-bar-chart-o
           Pacientes
-      %li
+      %li#consultas
         %a{:href => "/consultas"}
           %i.fa.fa-fw.fa-table
           Consultas
   / /.navbar-collapse
+
+:javascript
+  url=window.location.pathname;
+  if(url.indexOf("home")>=0){
+    $("#home").addClass("active");
+  }
+  else if(url.indexOf("pacientes")>=0){
+    $("#pacientes").addClass("active");
+  }
+  else if(url.indexOf("consultas")>=0){
+    $("#consultas").addClass("active");
+  }
