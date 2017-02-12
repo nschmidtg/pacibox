@@ -10,12 +10,6 @@ class PacientesController < ApplicationController
   # GET /pacientes/1
   # GET /pacientes/1.json
   def show
-    @paciente = Paciente.find params[:id]
-    unless current_user.id == @paciente.user_id
-      flash[:notice] = "No tienes acceso a ese paciente."
-      redirect_to home_path()
-      return
-    end
   end
 
   # GET /pacientes/new
@@ -75,8 +69,14 @@ class PacientesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_paciente
-      @paciente = Paciente.find(params[:id])
+      @paciente = Paciente.find params[:id]
+      unless current_user.id == @paciente.user_id
+        flash[:notice] = "No tienes acceso a ese paciente."
+        redirect_to home_path()
+        return
+      end
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paciente_params

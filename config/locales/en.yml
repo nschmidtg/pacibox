@@ -30,6 +30,11 @@ en:
           attributes:
             mail:
               blank: "is required"
+  helpers:
+    submit:
+      paciente:
+        create: "Crear un %{model}"
+        update: "Confirmar cambios al %{model} creado"
 
 es:
   activerecord:
