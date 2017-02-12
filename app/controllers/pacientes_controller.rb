@@ -1,6 +1,7 @@
 class PacientesController < ApplicationController
   before_action :set_paciente, only: [:show, :edit, :update, :destroy]
   protect_from_forgery with: :null_session
+  skip_before_filter  :verify_authenticity_token
 
   # GET /pacientes
   # GET /pacientes.json
